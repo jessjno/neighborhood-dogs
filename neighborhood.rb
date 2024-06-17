@@ -13,6 +13,7 @@ class Neighborhood
       puts "Choose from the below options:"
       puts "1. Add my dog"
       puts "2. View dogs in my neighborhood"
+      puts "3. Remove dog from my neighborhood"
       puts "3. Exit"
   
     choice = gets.chomp.to_i
@@ -21,8 +22,10 @@ class Neighborhood
       when 1
         add_new_dog
       when 2
-        view_dogs
+        view_all_dogs
       when 3
+        remove_dog
+      when 4
         puts "See Ya Later!"
         break
       else
@@ -34,6 +37,7 @@ end
 private
 
   def add_new_dog
+    puts "Adding new dog to Neighborhood"
     print "Enter your dogs name: "
     name = gets.chomp
     print "Enter the breed of your dog: "
@@ -44,8 +48,14 @@ private
     puts "#{name}, has been added to Neighborhood Dogs"
   end
 
-  def view_dogs
-    puts dogs.values
+  def view_all_dogs
+    if dogs.empty?
+      puts "There are no dogs in this Neighborhood"
+    else
+      @dogs.each do |dog|
+        puts "#{dog.name} #{dog.breed} #{dog.color}"
+      end
+    end
   end
 
 end
