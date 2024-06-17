@@ -4,7 +4,7 @@ class Neighborhood
   attr_accessor :dogs
   
   def initialize
-    @dogs = {}
+    @dogs = []
     puts "Welcome to the Neighborhood Dogs App!"
   end
 
@@ -35,12 +35,17 @@ private
 
   def add_new_dog
     print "Enter your dogs name: "
-    @name = gets.chomp
+    name = gets.chomp
     print "Enter the breed of your dog: "
-    @breed = gets.chomp
+    breed = gets.chomp
     print "Enter the color of your dog: "
-    @color = gets.chomp
-    @dogs << Dog.new(@name, @breed, @color)
+    color = gets.chomp
+    @dogs << Dog.new(name, breed, color)
     puts "#{name}, has been added to Neighborhood Dogs"
   end
+
+  def view_dogs
+    puts dogs.values
+  end
+
 end
