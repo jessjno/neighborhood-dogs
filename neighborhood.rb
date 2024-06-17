@@ -13,7 +13,6 @@ class Neighborhood
       puts "Choose from the below options:"
       puts "1. Add my dog"
       puts "2. View dogs in my neighborhood"
-      puts "3. Remove dog from my neighborhood"
       puts "3. Exit"
   
     choice = gets.chomp.to_i
@@ -24,8 +23,6 @@ class Neighborhood
       when 2
         view_all_dogs
       when 3
-        remove_dog
-      when 4
         puts "See Ya Later!"
         break
       else
@@ -53,7 +50,7 @@ private
       puts "There are no dogs in this Neighborhood"
     else
       @dogs.each do |dog|
-        puts "#{dog.name} #{dog.breed} #{dog.color}"
+        puts "#{dog.name} - #{dog.breed} #{dog.color}"
       end
     end
   end
