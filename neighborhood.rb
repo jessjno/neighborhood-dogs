@@ -42,7 +42,7 @@ private
     print "Enter the color of your dog: "
     color = gets.chomp
     @dogs << Dog.new(name, breed, color)
-    puts "#{name}, has been added to Neighborhood Dogs"
+    puts "Hi #{name}!! Welcome to the Neighborhood Dog"
   end
 
   def view_all_dogs
