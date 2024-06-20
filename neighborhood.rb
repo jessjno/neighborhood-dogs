@@ -19,7 +19,7 @@ class Neighborhood
 
       case choice
       when 1
-        add_new_dog
+        add_new_dog_from_input
       when 2
         view_all_dogs
       when 3
@@ -31,9 +31,22 @@ class Neighborhood
     end
 end
 
+def add_new_dog(name, breed, color)
+  @dogs << Dog.new(name, breed, color)
+  "Hi #{name}!! Welcome to the Neighborhood Dog"
+end
+
+def view_all_dogs
+  if @dogs.empty?
+    "There are no dogs in this Neighborhood"
+  else
+    @dogs.map { |dog| "#{dog.name} - #{dog.breed} #{dog.color}" }.join(", ")
+  end
+end
+
 private
 
-  def add_new_dog
+  def add_new_dog_from_input
     puts "Adding new dog to Neighborhood"
     print "Enter your dogs name: "
     name = gets.chomp
@@ -41,18 +54,7 @@ private
     breed = gets.chomp
     print "Enter the color of your dog: "
     color = gets.chomp
-    @dogs << Dog.new(name, breed, color)
-    puts "Hi #{name}!! Welcome to the Neighborhood Dog"
+    puts add_new_dog(name, breed, color)
   end
-
-  def view_all_dogs
-    if dogs.empty?
-      puts "There are no dogs in this Neighborhood"
-    else
-      @dogs.each do |dog|
-        puts "#{dog.name} - #{dog.breed} #{dog.color}"
-      end
-    end
-  end
-
 end
+
