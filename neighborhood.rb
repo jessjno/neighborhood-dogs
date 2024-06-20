@@ -33,7 +33,7 @@ end
 
 def add_new_dog(name, breed, color)
   @dogs << Dog.new(name, breed, color)
-  "Hi #{name}!! Welcome to the Neighborhood Dog"
+  "#{name} has been added to Neighborhood Dogs"
 end
 
 def view_all_dogs
@@ -57,4 +57,3 @@ private
     puts add_new_dog(name, breed, color)
   end
 end
-

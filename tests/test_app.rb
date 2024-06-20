@@ -1,20 +1,24 @@
 require 'minitest/autorun'
-require './app'
+require_relative '../neighborhood'
 
-class TestApp <  Minitest::Test
+class TestNeighborhood < Minitest::Test
+  def setup
+    @neighborhood = Neighborhood.new
+  end
+
   def test_add_new_dog
-    result = @neighborhood.add_new_dog("Buddy", "Golden Retriever", "Golden")
-    assert_equal "Buddy has been added to Neighborhood Dogs", result, "Error in adding new dog"
+    result = @neighborhood.add_new_dog("Bentley", "Mix ", "Gold")
+    assert_equal "Bentley has been added to Neighborhood Dogs", result, "Error in adding new dog"
     assert_equal 1, @neighborhood.dogs.size
-    assert_equal "Buddy", @neighborhood.dogs[0].name
-    assert_equal "Golden Retriever", @neighborhood.dogs[0].breed
-    assert_equal "Golden", @neighborhood.dogs[0].color
+    assert_equal "Bentley", @neighborhood.dogs[0].name
+    assert_equal "Mix", @neighborhood.dogs[0].breed
+    assert_equal "Gold", @neighborhood.dogs[0].color
   end
 
   def test_view_all_dogs
-    @neighborhood.add_new_dog("Buddy", "Golden Retriever", "Golden")
+    @neighborhood.add_new_dog("Bentley", "Mix", "Gold")
     result = @neighborhood.view_all_dogs
-    assert_equal "Buddy - Golden Retriever Golden", result, "Error in viewing all dogs"
+    assert_equal "Bentley - Mix Gold", result, "Error in viewing all dogs"
   end
 
   def test_view_all_dogs_no_dogs
