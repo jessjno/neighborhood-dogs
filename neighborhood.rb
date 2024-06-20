@@ -21,7 +21,7 @@ class Neighborhood
       when 1
         add_new_dog_from_input
       when 2
-        view_all_dogs
+        puts view_all_dogs
       when 3
         puts "See Ya Later!"
         break

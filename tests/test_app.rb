@@ -7,7 +7,7 @@ class TestNeighborhood < Minitest::Test
   end
 
   def test_add_new_dog
-    result = @neighborhood.add_new_dog("Bentley", "Mix ", "Gold")
+    result = @neighborhood.add_new_dog("Bentley", "Mix", "Gold")
     assert_equal "Bentley has been added to Neighborhood Dogs", result, "Error in adding new dog"
     assert_equal 1, @neighborhood.dogs.size
     assert_equal "Bentley", @neighborhood.dogs[0].name
